@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView, Navigator, TouchableOpacity } from 'react-native';
 import { ListMenu } from './ListMenu';
 import Button from './Button';
 import Icon from './Icon';
@@ -8,59 +8,63 @@ import Icon from './Icon';
 class MenuContents extends Component {
   constructor(props, context) {
     super(props, context);
-    this.onClickLink = this.onClickLink.bind(this);
+    this.state = {
+      currentMenu: 'homepage'
+    };
+    this.onPress = this.onPress.bind(this);
+    this.renderItemMenu = this.renderItemMenu.bind(this);
+
   }
 
-  onClickLink(name) {
+  onPress(name) {
     if (name !== '') {
+      this.setState({currentMenu: name})
       this.props.navigate({ name });
     }
   }
-  renderSubMenu(data) {
-    const { iconStyle, textSub } = styles;
-    return (
-      <View key={`${data.name}`} icon block onPress={() => this.onClickLink(data.name)}>
-          <Text name={data.icon} style={iconStyle} />
-          <Icon name={data.icon} style={iconStyle} />
-          <Text style={textSub}>{data.label}</Text>
-      </View>
-    );
-  }
   renderItemMenu(data, i) {
     const { iconStyle, menuStyle, subMenuStyle, isActive, temp } = styles;
-
+    let addStyle = {};
+    if(this.state.currentMenu === data.name) addStyle = isActive;
     return (
-      <View key={`${data.name}_${i}`} style={menuStyle}>
-        <View
-        icon
-        onPress={() => this.onClickLink(data.name)}
+      <TouchableOpacity
+        style={[styles.itemsMenu, addStyle]}
+        key={`${data.name}_${i}`}
+        onPress={() => this.onPress(data.name)} 
         >
-            <Icon name={data.icon} style={iconStyle} />
-            <Text >{data.label}</Text>
-            <Icon name='ios-arrow-down'style={iconStyle} />
-        </View>
-      </View>
+        <Icon name={data.icon} style={iconStyle} />
+        <Text style={styles.itemsLabel}>{data.label}</Text>
+      </TouchableOpacity>
     );
   }
   render() {
-    const { containerMenu } = styles;
     return (
-      <View style={containerMenu}>     
-          <Button
-          caption={"MENU"}
-          onPress={() => {
-            this.props.closeDrawer();
-          }}
-          >
-             <Icon name='ios-arrow-forward' />
-         </Button>
-          <View>
-            {
-              ListMenu.map((item, i) => (
-                this.renderItemMenu(item, i)
-              ))
-            }
-          </View>
+      <View style={styles.containerMenu}>
+        <ScrollView>
+        <View style={styles.toolWrapper}>
+          <View style={{ alignItems: 'center', justifyContent: 'center'}}>
+          <TouchableOpacity            
+            onPress={() => this.props.closeDrawer()} 
+            >
+            <Icon name='ios-close-outline' style={styles.iconStyle} />
+          </TouchableOpacity>
+         </View>
+         <View style={{ alignItems: 'center', justifyContent: 'center'}}>
+          <TouchableOpacity            
+            onPress={() => this.props.closeDrawer()} 
+            >
+            <Icon name='ios-settings-outline' style={styles.iconStyle} />
+          </TouchableOpacity>
+         </View>
+        </View>           
+        <View style={styles.itemsWapper}>
+          {
+            ListMenu.map((row ,i) => (
+              this.renderItemMenu(row, i)
+            ))
+          }         
+        </View>
+        </ScrollView>
       </View>
     );
   }
@@ -70,19 +74,52 @@ const styles = {
   containerMenu: {
     flex: 1,
     paddingTop: 30,
+    flexDirection: 'row',
+  },
+  toolWrapper: {
+    flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginVertical: 35,
+    marginHorizontal: 20,
+    flexDirection: 'row'
+  },
+  itemsWapper: {
+    flex: 4,
+    flexDirection: 'row', 
+    flexWrap:'wrap'
+  },
+  itemsMenu: {
+    width: 180,
+    height: 120,
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  itemsLabel: {
+    fontSize: 15,
+    lineHeight: 23,
+    fontFamily: 'Karla-Bold',
+    color: 'rgb(0, 0, 0)'
   },
   iconStyle: {
-    color: '#333',
+    color: '#000',
+    backgroundColor: '#000',
     fontSize: 26
   },
   iconBasket: {
     fontSize: 24
   },
+  menuStyle: {
+    marginLeft: 25,
+    borderWidth: 2,
+    borderColor: '#000'
+  },
   subMenuStyle: {
     marginLeft: 25,
   },
-  isActive: {},
+  isActive: {
+    backgroundColor: 'rgb(184, 166, 228)'
+  },
   iconSub: {
     color: '#666',
     fontSize: 22

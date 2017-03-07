@@ -3,7 +3,7 @@
  * https://github.com/facebook/react-native
  */
 import React, { Component } from 'react';
-import {} from 'react-native';
+import { } from 'react-native';
 import Drawer from 'react-native-drawer';
 import MenuContents from './MenuContents';
 import tweens from './tweens';
@@ -16,14 +16,14 @@ class SideMenu extends Component {
     super(props, context);
     this.state = {
       drawerType: 'displace',
-      openDrawerOffset: 100,
+      openDrawerOffset: 0,
       closedDrawerOffset: 0,
       panOpenMask: 0,
       panCloseMask: 0,
       relativeDrag: false,
       panThreshold: 0.25,
       tweenHandlerOn: false,
-      tweenDuration: 350,
+      tweenDuration: 200,
       tweenEasing: 'linear',
       disabled: false,
       tweenHandlerPreset: null,
@@ -54,8 +54,13 @@ class SideMenu extends Component {
       changeVal: Math.random()
     });
   }
+  handleBackButton() {
+    this.closeDrawer();
+    return true;
+  }
   openDrawer() {
     this.drawer.open();
+    this.context.addBackButtonListener(this.handleBackButton);
   }
   closeDrawer() {
     this.drawer.close();
@@ -63,7 +68,7 @@ class SideMenu extends Component {
 
 
   render() {
-    const menuContents = (<MenuContents
+    const menuContents = (<MenuContents      
       closeDrawer={() => this.drawer.close()}
       navigate={this.props.navigate}
     />);
@@ -108,7 +113,11 @@ const drawerStyles = {
     shadowColor: '#000000',
     shadowOpacity: 0.9,
     shadowRadius: 0,
+    backgroundColor: 'rgb(126, 239, 204)'
   }
 };
-
+SideMenu.contextTypes = {
+  addBackButtonListener: React.PropTypes.func,
+  removeBackButtonListener: React.PropTypes.func,
+};
 export default SideMenu;

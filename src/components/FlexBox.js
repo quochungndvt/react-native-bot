@@ -26,9 +26,10 @@ class FlexBox extends Component {
   render() {
       return (
         <View style={{
-          flexDirection: 'row', //'row', 'row-reverse', 'column', 'column-reverse'
+          flexDirection: 'column', //'row', 'row-reverse', 'column', 'column-reverse'
           justifyContent: 'center', //flex-start, center, flex-end, space-around, and space-between
-          alignItems: 'center', //flex-start, center, flex-end, and stretch
+          alignItems: 'stretch', //flex-start, center, flex-end, and stretch,
+          //flexWrap: 'wrap'//,nowrap | wrap | wrap-reverse;
           marginHorizontal: 10,
           marginVertical : 10,
           padding: 10,

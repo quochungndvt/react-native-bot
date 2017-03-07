@@ -30,7 +30,7 @@ class Button extends React.Component {
     content = (
       <View style={[styles.button, border]}>
         {icon}
-        <Text style={[styles.caption, styles.secondaryCaption]}>
+        <Text style={[styles.caption, styles.primaryCaption]}>
           {caption}
         </Text>
       </View>
@@ -79,7 +79,7 @@ var styles = StyleSheet.create({
     fontSize: 12,
   },
   primaryCaption: {
-    color: 'white',
+    color: 'black',
   },
   secondaryCaption: {
     color: Colors.lightText,

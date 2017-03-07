@@ -9,20 +9,16 @@ import {
   LayoutAnimation,
   StyleSheet,
   PixelRatio,
-  TextInput
-  //DeviceEventEmitter
+  TextInput  
 } from 'react-native';
-
-import BackgroundImage from  './BackgroundImage';
-import Button from '../../common/Button';
-import Cube from './Cube';
-const _window = Dimensions.get('window');
+import Login from  './Login';
+import Signup from  './Signup';
+import ForgotPassword from  './ForgotPassword';
 
 class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visibleHeight: Dimensions.get('window').height,
       screneType: ''
     };
     this.renderScene = this.renderScene.bind(this);
@@ -30,24 +26,24 @@ class HomePage extends Component {
   }
   componentWillMount() {
     // Animate creation
-    LayoutAnimation.spring();
+    //LayoutAnimation.spring();
   }
   onPressHandle(name){
-    LayoutAnimation.spring();
+    //LayoutAnimation.spring();
     this.setState({screneType:name});
   }
   renderScene() {
     const {
       account: { isLogin }
     } = this.props;
-    if (isLogin) return <ChooseGroup {...this.props} title="ChooseGroup" />;
+    //if (isLogin) return <ChooseGroup {...this.props} title="ChooseGroup" />;
     const screneType = this.state.screneType;
     switch (screneType) {
       case 'Login':
         return (<Login {...this.props} onPressHandle={this.onPressHandle} title="Login" />);
       case 'Signup':
         return (<Signup {...this.props} onPressHandle={this.onPressHandle} title="Signup" />);
-      case 'ForgetPass':
+      case 'ForgotPassword':
         return (<ForgetPass {...this.props} onPressHandle={this.onPressHandle} title="ForgetPass" />);
       default:
         return (<Login {...this.props} onPressHandle={this.onPressHandle} title="Login" />);
@@ -57,60 +53,8 @@ class HomePage extends Component {
     const {
       account: { isLogin, user_data }, onLogout
     } = this.props;
-    const {
-      containerView, boxHi, nameU, txtLogout, logout, contentHome
-    } = styles;
       return (
-        
-          <View style={[containerView]}>
-            
-            <Cube />
-            <View>
-              <Text style={styles.headerTitle}>{"Chat"}</Text>
-              
-            </View>
-            <View style={{flex:1}}>
-              <Text>{"width:"+_window['width']}</Text>
-              <Text>{"width:"+_window['height']}</Text>
-              <Text>{"PixelRatio:"+PixelRatio.get()}</Text>
-              <Text>{"getPixelSizeForLayoutSize 200:"+PixelRatio.getPixelSizeForLayoutSize(200)}</Text>
-              <Text>{"getFontScale 0:"+PixelRatio.getFontScale(0)}</Text>
-            </View>
-            <View style={contentHome}>
-              <View>
-                <View style={styles.left}><Text style={styles.icon}>ICON</Text></View>
-                <View style={styles.right}><Text style={styles.inputLabel}>USERNAME</Text>
-                  <View style={styles.inputWapper}>
-                  <TextInput
-                    underlineColorAndroid={'transparent'}
-                    autoCorrect
-                    placeholder={'abc@domain.com'}
-                    placeholderTextColor='rgb(255, 255, 255)'
-                    style={styles.inputStyle}            
-                    />
-                  </View>
-                  </View>
-              </View>
-              <View>
-                <View style={styles.left}><Text style={styles.icon}>ICON</Text></View>
-                <View style={styles.right}><Text style={styles.inputLabel}>PASSWORD</Text>
-                  <View style={styles.inputWapper}>
-                  <TextInput
-                    underlineColorAndroid={'transparent'}
-                    autoCorrect
-                    secureTextEntry={true}
-                    placeholder={'*****'}
-                    placeholderTextColor='rgb(255, 255, 255)'
-                    style={styles.inputStyle}                
-                    />
-                  </View>
-                </View>
-                </View>
-            </View>
-            <Button style={styles.button} 
-            caption={'Get started'}/>
-          </View>
-        
+        <View style={{flex: 1}}>{this.renderScene()}</View>
       );
     }
 }
@@ -118,27 +62,30 @@ class HomePage extends Component {
 const styles = StyleSheet.create({
   containerView: {
     flexDirection: 'column',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'stretch',
     backgroundColor: 'rgb(126, 239, 204)',
     flex: 1,
   },
   wapperTitle: {
-    position: 'absolute',
+    flex: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   headerTitle: {  
     fontSize: 100,
-    fontFamily: 'Karla-Bold',
-    top: 130,
-    alignItems: 'center',
-    height: 152,
+    fontFamily: 'Karla-Bold',    
     letterSpacing: -2,
-
+    color: 'rgb(0, 0, 0)',
   },
   contentHome: {
-    flex: 2,
-    top: 305,
+    flex: 3,
     backgroundColor: 'rgb(0, 0, 0)',
+    flexDirection: 'column'
+  },
+  formWapper: {
+    flex: 1,
+    flexDirection: 'row'
   },
   inputWapper: {
     height: 46,
@@ -153,9 +100,8 @@ const styles = StyleSheet.create({
     borderColor: 'rgb(0, 0, 0)',
     borderBottomColor: 'rgba(255, 255, 255, 0.2)',
     borderBottomWidth:2,
-    paddingLeft: 60,
-    paddingRight: 20,
     fontFamily: 'Karla-Regular',
+    marginRight: 35,
     color: 'rgb(255, 255, 255)',
     flex: 1,
   },
@@ -170,21 +116,48 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   left: {
-    //alignItems: 'flex-start',
-    flexDirection: 'column'
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
   },
   right: {
-    //alignItems: 'center',
-    left: 209,
-    flexDirection: 'column'
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    flex: 3,
+  },
+  buttonWapper: {
+    flex: 1,
+    alignItems: 'stretch',
+    justifyContent: 'center',
+    marginHorizontal: 35
   },
   button: {
     backgroundColor: 'rgb(184, 166, 228)',
-    //color: 'rgb(0, 0, 0)',
-    fontSize: 26,
-    fontFamily: 'Karla-Bold',
     justifyContent: 'center',
-    
+  },
+  footerWapper: {
+    flex: 1,
+    alignItems: 'stretch',
+    justifyContent: 'center',
+    flexDirection: 'row'
+  },
+  createWapper: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  forgotWapper: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  create: {
+    color: 'rgb(255, 255, 255)',
+    fontFamily: 'Karla-Bold',
+  },
+  forgot: {
+    color: 'rgb(255, 255, 255)',
+    fontFamily: 'Karla-Bold',    
   }
 });
 

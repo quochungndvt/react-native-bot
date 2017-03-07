@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Navigator, BackAndroid, Platform } from 'react-native';
+import { Navigator, BackAndroid, Platform  } from 'react-native';
 import SideMenu from './common/SideMenu';
 import ContainerPage from './ContainerPage';
 import HomeContainer from './containers/HomeContainer';
+import ProfileContainer from './containers/ProfileContainer';
 import FlexBox from './containers/FlexBox';
 
 class FDNavigator extends Component {
@@ -10,18 +11,34 @@ class FDNavigator extends Component {
       super(props);
       this.navigatorRenderScene = this.navigatorRenderScene.bind(this);
       this.navigateGet = this.navigateGet.bind(this);
+      this.openDrawer  = this.openDrawer.bind(this);
+      this._handlers = ([]: Array<() => boolean>)
     }
+    
     componentDidMount() {
-      BackAndroid.addEventListener('hardwareBackPress', this.handleBackAction);
+      BackAndroid.addEventListener('hardwareBackPress', this.handleBackButton);
     }
     componentWillUnmount() {
-      BackAndroid.removeEventListener('hardwareBackPress', this.handleBackAction);
+      BackAndroid.removeEventListener('hardwareBackPress', this.handleBackButton);
     }
     drawerExt: ? SideMenu;
     navigatorGet: ? Navigator;
+    getChildContext() {
+      return {
+        addBackButtonListener: this.addBackButtonListener,
+        removeBackButtonListener: this.removeBackButtonListener,
+      };
+    }
+    addBackButtonListener (listener) {
+      this._handlers.push(listener);
+    }
+
+    removeBackButtonListener (listener) {
+      this._handlers = this._handlers.filter((handler) => handler !== listener);
+    }
     handleBackButton() {
       for (let i = this.handlers.length - 1; i >= 0; i--) {
-        if (this.handlers[i]()) {
+        if (this._handlers[i]()) {
           return true;
         }
       }
@@ -40,6 +57,7 @@ class FDNavigator extends Component {
           return (
             <HomeContainer
             navigator={navigator}
+            openDrawer={this.openDrawer}
             {...this.props}
             />);
         case 'flexbox':
@@ -47,7 +65,8 @@ class FDNavigator extends Component {
             <ContainerPage
             navigator={navigator}
             onBack={this.handleBackButton}
-            drawer={this.drawerExt}
+            title={route.name}
+            openDrawer={this.openDrawer}
             >
               <FlexBox
               navigator={navigator}
@@ -55,24 +74,36 @@ class FDNavigator extends Component {
               />
             </ContainerPage>
             );
-        default:
+        case 'profile':
           return (
             <ContainerPage
             navigator={navigator}
             onBack={this.handleBackButton}
-            drawer={this.drawerExt}
+            openDrawer={this.openDrawer}
+            title={'Profile'}
             >
-              <FlexBox
+              <ProfileContainer
               navigator={navigator}
               {...this.props}
               />
             </ContainerPage>
+            );
+        default:
+          return (
+            <HomeContainer
+            navigator={navigator}
+            openDrawer={this.openDrawer}
+            {...this.props}
+            />
           );
       }
     }
-    navigateGet(route) {
-        this.navigatorGet.push(route);
-        this.drawerExt.closeDrawer();
+    navigateGet(route) {      
+      this.navigatorGet.push(route);
+      this.drawerExt.closeDrawer();
+    }
+    openDrawer(){
+      this.drawerExt.openDrawer();
     }
     render() {
       return (
@@ -101,5 +132,9 @@ const styles = {
   navigatorStyle: {
     flex: 1
   }
+};
+FDNavigator.childContextTypes = {
+  addBackButtonListener: React.PropTypes.func,
+  removeBackButtonListener: React.PropTypes.func,
 };
 export default FDNavigator;

@@ -1,31 +1,52 @@
 import React, { Component } from 'react';
-import { View, Platform, StatusBar, Button, Text } from 'react-native';
+import { View, Platform, StatusBar, Button, Text, TouchableOpacity } from 'react-native';
 import Icon from './Icon';
 class Header extends Component {
   render() {
-    const { drawer, navigator } = this.props;    
     return (
       <View style={styles.containerHeader}>
-        <Button transparent onPress={() => drawer.openDrawer()} title={"Menu"}>
-            <Icon name='ios-menu' style={styles.styleIcon} />
-        </Button>
+        <View style={styles.menuWrap}>
+          <TouchableOpacity            
+            onPress={() => this.props.openDrawer()} 
+            >
+            <Icon name='ios-menu-outline' style={styles.iconStyle} />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.titleWrap}>
+          <Text style={styles.title}>{this.props.title}</Text>
+        </View>
+        <View style={styles.moreWrap}>
+          
+        </View>
       </View>
     );
   }
 }
 const styles = {
   containerHeader: {
-    backgroundColor: '#ffdb1b',
+    backgroundColor: '#000',
     paddingTop: (Platform.OS === 'android') ? StatusBar.currentHeight : 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     flex: 1
   },
-  styleIcon: {
-    color: '#000',
-    backgroundColor: 'transparent',
-    fontSize: 26
+  menuWrap: {
+    flex: 1,
+    alignItems: 'flex-start'
+
+  },
+  titleWrap: {
+    flex: 1,
+    alignItems: 'center'
+  },
+  title: {
+    fontFamily: 'Karla-Regular',
+    fontSize: 17,
+    color: '#fff'
+  },
+  moreWrap: {
+    flex: 1
   }
 };
 export default Header;

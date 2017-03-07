@@ -6,6 +6,7 @@ import { actions as accountActions } from '../../actions/account';
 
 class HeaderContainer extends Component {
   render() {
+    console.log(this.props,"+++++++++++++++++++++++++");
     return (
       <Header
         title={'title header'}
