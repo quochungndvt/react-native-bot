@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Platform, StatusBar, Button, Text, TouchableOpacity } from 'react-native';
 import Icon from './Icon';
+import { iconStyle } from '../utils/common';
 class Header extends Component {
   render() {
     return (
@@ -9,7 +10,7 @@ class Header extends Component {
           <TouchableOpacity            
             onPress={() => this.props.openDrawer()} 
             >
-            <Icon name='ios-menu-outline' style={styles.iconStyle} />
+            <Icon name='ios-menu-outline' {...iconStyle.style3} />
           </TouchableOpacity>
         </View>
         <View style={styles.titleWrap}>

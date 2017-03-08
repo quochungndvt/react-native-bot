@@ -6,7 +6,7 @@ class CustomIcon extends Component {
   }
   render() {
     return (
-        <Icon name={this.props.name ? this.props.name : ''} size={this.props.size ? this.props.size : 30} color={this.props.color ? this.props.color : "#900"} />
+        <Icon name={this.props.name ? this.props.name : ''} size={this.props.size ? this.props.size : 30} {...this.props} />
     );
   }
 }

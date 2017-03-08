@@ -3,7 +3,7 @@ import { View, Text, ScrollView, Navigator, TouchableOpacity } from 'react-nativ
 import { ListMenu } from './ListMenu';
 import Button from './Button';
 import Icon from './Icon';
-
+import { iconStyle } from '../utils/common';
 
 class MenuContents extends Component {
   constructor(props, context) {
@@ -32,7 +32,7 @@ class MenuContents extends Component {
         key={`${data.name}_${i}`}
         onPress={() => this.onPress(data.name)} 
         >
-        <Icon name={data.icon} style={iconStyle} />
+        <Icon name={data.icon} {...iconStyle.style4} />
         <Text style={styles.itemsLabel}>{data.label}</Text>
       </TouchableOpacity>
     );
@@ -46,14 +46,14 @@ class MenuContents extends Component {
           <TouchableOpacity            
             onPress={() => this.props.closeDrawer()} 
             >
-            <Icon name='ios-close-outline' style={styles.iconStyle} />
+            <Icon name='ios-close-outline'  {...iconStyle.style4}  />
           </TouchableOpacity>
          </View>
          <View style={{ alignItems: 'center', justifyContent: 'center'}}>
           <TouchableOpacity            
             onPress={() => this.props.closeDrawer()} 
             >
-            <Icon name='ios-settings-outline' style={styles.iconStyle} />
+            <Icon name='ios-settings-outline'  {...iconStyle.style4} />
           </TouchableOpacity>
          </View>
         </View>           

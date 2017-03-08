@@ -35,25 +35,10 @@
     label: 'FlexBox',
     name: 'flexbox'
   },{
-    icon: 'ios-images-outline',
-    label: 'Gallery',
-    name: 'gallery'
+    icon: 'ios-cube-outline',
+    label: 'Cube',
+    name: 'cube'
   },
-    {
-    icon: 'ios-camera-outline',
-    label: 'Capture',
-    name: 'capture'
-  },
-    {
-    icon: 'ios-stats-outline',
-    label: 'Stats',
-    name: 'stats'
-  },
-  {
-    icon: 'ios-map-outline',
-    label: 'FlexBox',
-    name: 'flexbox'
-  }
 ];
 
 

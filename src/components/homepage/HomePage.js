@@ -44,7 +44,7 @@ class HomePage extends Component {
       case 'Signup':
         return (<Signup {...this.props} onPressHandle={this.onPressHandle} title="Signup" />);
       case 'ForgotPassword':
-        return (<ForgetPass {...this.props} onPressHandle={this.onPressHandle} title="ForgetPass" />);
+        return (<ForgotPassword {...this.props} onPressHandle={this.onPressHandle} title="ForgotPassword" />);
       default:
         return (<Login {...this.props} onPressHandle={this.onPressHandle} title="Login" />);
     }

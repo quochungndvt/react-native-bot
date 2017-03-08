@@ -36,6 +36,7 @@ class SideMenu extends Component {
 
     };
     this.openDrawer = this.openDrawer.bind(this);
+    this.handleBackButton = this.handleBackButton.bind(this);
   }
   setDrawerType(type) {
     this.setState({
@@ -60,10 +61,11 @@ class SideMenu extends Component {
   }
   openDrawer() {
     this.drawer.open();
-    this.context.addBackButtonListener(this.handleBackButton);
+    if(this.props.addBackButtonListener) this.props.addBackButtonListener(this.handleBackButton);
   }
   closeDrawer() {
     this.drawer.close();
+    if(this.context.removeBackButtonListener) this.context.removeBackButtonListener(this.handleBackButton);
   }
 
 
