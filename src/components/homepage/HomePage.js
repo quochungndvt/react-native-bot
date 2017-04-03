@@ -33,10 +33,6 @@ class HomePage extends Component {
     this.setState({screneType:name});
   }
   renderScene() {
-    const {
-      account: { isLogin }
-    } = this.props;
-    //if (isLogin) return <ChooseGroup {...this.props} title="ChooseGroup" />;
     const screneType = this.state.screneType;
     switch (screneType) {
       case 'Login':
@@ -49,10 +45,7 @@ class HomePage extends Component {
         return (<Login {...this.props} onPressHandle={this.onPressHandle} title="Login" />);
     }
   }
-  render() {
-    const {
-      account: { isLogin, user_data }, onLogout
-    } = this.props;
+  render() {  
       return (
         <View style={{flex: 1}}>{this.renderScene()}</View>
       );

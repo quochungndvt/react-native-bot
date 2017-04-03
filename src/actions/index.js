@@ -1,11 +1,27 @@
 'use strict';
 
-import { actions as accountActions } from './account';
-import { actions as loginActions } from './login';
-import { actions as registerActions } from './register';
+const registerActions = require('./register');
+const accountActions = require('./account');
+const parseActions = require('./parse');
+const navigationActions = require('./navigation');
+const loginActions = require('./login');
+const scheduleActions = require('./schedule');
+const filterActions = require('./filter');
+const notificationActions = require('./notifications');
+const configActions = require('./config');
+const surveyActions = require('./surveys');
+const testActions = require('./test');
+const installationActions = require('./installation');
 
-export {
-  accountActions,
-  loginActions,
-  registerActions,
+module.exports = {
+  ...loginActions,
+  ...scheduleActions,
+  ...filterActions,
+  ...notificationActions,
+  ...configActions,
+  ...surveyActions,
+  ...testActions,
+  ...parseActions,
+  ...navigationActions,
+  ...installationActions,
 };

@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './src/index';
+import index from './src/index';
 
-AppRegistry.registerComponent('ReactNativeBot', () => App);
+AppRegistry.registerComponent('ReactNativeBot', index);

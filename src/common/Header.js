@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Platform, StatusBar, Button, Text, TouchableOpacity } from 'react-native';
-import Icon from './Icon';
+import Icon from './FDIcon';
 import { iconStyle } from '../utils/common';
 class Header extends Component {
   render() {

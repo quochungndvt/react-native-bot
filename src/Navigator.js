@@ -13,6 +13,7 @@ import StatsContainer from './containers/StatsContainer';
 import SettingContainer from './containers/SettingContainer';
 import FlexBox from './containers/FlexBox';
 import Cube from './components/homepage/Cube';
+import MapContainer from './containers/MapContainer';
 
 var FDNavigator = React.createClass({
   _handlers: ([]: Array<() => boolean>),
@@ -33,7 +34,7 @@ var FDNavigator = React.createClass({
   },
 
   addBackButtonListener: function(listener) {
-    console.log("++_______",listener);
+    console.log("addBackButtonListener",listener);
     this._handlers.push(listener);
   },
 
@@ -42,7 +43,7 @@ var FDNavigator = React.createClass({
   },
 
   handleBackButton: function() {
-    console.log("++this._handlers_______",this._handlers);
+    console.log("handleBackButton",this._handlers);
     for (let i = this._handlers.length - 1; i >= 0; i--) {
       if (this._handlers[i]()) {
         return true;
@@ -57,11 +58,11 @@ var FDNavigator = React.createClass({
     return false;
   },
   navigateGet: function(route) {      
-    this.navigatorGet.push(route);
-    this.drawerExt.closeDrawer();
+    this.navigatorGet && this.navigatorGet.push(route);
+    this.drawerExt && this.drawerExt.closeDrawer();
   },
   openDrawer: function(){
-    this.drawerExt.openDrawer();
+    this.drawerExt && this.drawerExt.openDrawer();
   },
   navigatorRenderScene: function(route, navigator) {
     switch (route.name) {
@@ -184,6 +185,20 @@ var FDNavigator = React.createClass({
             />
           </ContainerPage>
           );
+      case 'map':
+        return (
+          <ContainerPage
+          navigator={navigator}
+          onBack={this.handleBackButton}
+          openDrawer={this.openDrawer}
+          title={'Map'}
+          >
+            <MapContainer
+            navigator={navigator}
+            {...this.props}
+            />
+          </ContainerPage>
+          );
       default:
         return (
           <HomeContainer
@@ -213,7 +228,7 @@ var FDNavigator = React.createClass({
             }*/}
             return Navigator.SceneConfigs.FloatFromRight;
           }}
-          initialRoute={{ name: 'homepage' }}
+          initialRoute={{ name: 'map' }}
           />
         </SideMenu>
     );
@@ -239,7 +254,7 @@ FDNavigator.childContextTypes = {
 function select(store) {
   return {
     //tab: store.navigation.tab,
-    isLoggedIn: store.account.isLogin,
+    isLoggedIn: store.isLogin,
   };
 }
 const mapStateToProps = state => ({

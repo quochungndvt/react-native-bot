@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Button } from 'react-native';
-import Icon from './Icon';
+import Icon from './FDIcon';
 
 class Footer extends Component {
   constructor(props) {

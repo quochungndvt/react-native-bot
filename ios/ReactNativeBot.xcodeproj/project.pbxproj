@@ -46,6 +46,12 @@
 		FD17F96DE17940EA9B2924F9 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13FC8701ADD744708D1220DE /* Octicons.ttf */; };
 		9332905477444B7E96B15424 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E8BE81F8CA7482FAE8AC18B /* SimpleLineIcons.ttf */; };
 		A8911315C3E24710B1D2FFB4 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 50EE870B7843480F9ABB4939 /* Zocial.ttf */; };
+		C8EAF062EBD44536BA76978B /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B281ADB42530429C833C4F80 /* libCodePush.a */; };
+		058ECB336AC74D0B8D759E50 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0ACCFDC9DE484BA1DD66DA /* libz.tbd */; };
+		038CC4EE4EEB43C79E1D45B1 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 126D44E8FCAB4EA3A6F533A6 /* libRCTFBSDK.a */; };
+		2C916031C4644233B9CCFBCE /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 392E1E63B8E645318F4605EE /* libBVLinearGradient.a */; };
+		C507DF83FCF84376BFA2CEC1 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E926FA36F0F34424BAC6E07F /* libAirMaps.a */; };
+		33602772631B4456A719DC1B /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 863C1AD8AD7747B489DF90FA /* libRNShare.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -277,6 +283,17 @@
 		13FC8701ADD744708D1220DE /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		6E8BE81F8CA7482FAE8AC18B /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		50EE870B7843480F9ABB4939 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		57712A5136CA4427B7C8C241 /* CodePush.xcodeproj */ = {isa = PBXFileReference; name = "CodePush.xcodeproj"; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		B281ADB42530429C833C4F80 /* libCodePush.a */ = {isa = PBXFileReference; name = "libCodePush.a"; path = "libCodePush.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		EB0ACCFDC9DE484BA1DD66DA /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
+		935BC53AD7B64267B74755B9 /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; name = "RCTFBSDK.xcodeproj"; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		126D44E8FCAB4EA3A6F533A6 /* libRCTFBSDK.a */ = {isa = PBXFileReference; name = "libRCTFBSDK.a"; path = "libRCTFBSDK.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		DB1377469E1B452A88E4E713 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; name = "BVLinearGradient.xcodeproj"; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		392E1E63B8E645318F4605EE /* libBVLinearGradient.a */ = {isa = PBXFileReference; name = "libBVLinearGradient.a"; path = "libBVLinearGradient.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		889147CC1A224041BB4B5BEE /* AirMaps.xcodeproj */ = {isa = PBXFileReference; name = "AirMaps.xcodeproj"; path = "../node_modules/react-native-maps/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		E926FA36F0F34424BAC6E07F /* libAirMaps.a */ = {isa = PBXFileReference; name = "libAirMaps.a"; path = "libAirMaps.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		78C5F20F31794A0A9436A65A /* RNShare.xcodeproj */ = {isa = PBXFileReference; name = "RNShare.xcodeproj"; path = "../node_modules/react-native-share/ios/RNShare.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		863C1AD8AD7747B489DF90FA /* libRNShare.a */ = {isa = PBXFileReference; name = "libRNShare.a"; path = "libRNShare.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +321,12 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				865F412EF6504BE8A45B5CC6 /* libRNVectorIcons.a in Frameworks */,
+				C8EAF062EBD44536BA76978B /* libCodePush.a in Frameworks */,
+				058ECB336AC74D0B8D759E50 /* libz.tbd in Frameworks */,
+				038CC4EE4EEB43C79E1D45B1 /* libRCTFBSDK.a in Frameworks */,
+				2C916031C4644233B9CCFBCE /* libBVLinearGradient.a in Frameworks */,
+				C507DF83FCF84376BFA2CEC1 /* libAirMaps.a in Frameworks */,
+				33602772631B4456A719DC1B /* libRNShare.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +494,11 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				DFD869C5F6EA4EDC827D82EA /* RNVectorIcons.xcodeproj */,
+				57712A5136CA4427B7C8C241 /* CodePush.xcodeproj */,
+				935BC53AD7B64267B74755B9 /* RCTFBSDK.xcodeproj */,
+				DB1377469E1B452A88E4E713 /* BVLinearGradient.xcodeproj */,
+				889147CC1A224041BB4B5BEE /* AirMaps.xcodeproj */,
+				78C5F20F31794A0A9436A65A /* RNShare.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -492,6 +520,7 @@
 				00E356EF1AD99517003FC87E /* ReactNativeBotTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				FEAB470F2CED44A8B1019967 /* Resources */,
+				E42585FF6EA44796929DA449 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -523,6 +552,15 @@
 				50EE870B7843480F9ABB4939 /* Zocial.ttf */,
 			);
 			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
+		E42585FF6EA44796929DA449 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB0ACCFDC9DE484BA1DD66DA /* libz.tbd */,
+			);
+			name = Frameworks;
 			path = "";
 			sourceTree = "<group>";
 		};
@@ -1028,6 +1066,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -1048,6 +1091,11 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactNativeBot.app/ReactNativeBot";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
@@ -1114,6 +1162,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -1144,6 +1197,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Release;
@@ -1169,6 +1227,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -1193,6 +1256,11 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};

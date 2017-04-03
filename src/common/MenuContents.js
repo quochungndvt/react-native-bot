@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Navigator, TouchableOpacity } from 'react-native';
 import { ListMenu } from './ListMenu';
-import Button from './Button';
-import Icon from './Icon';
+import FDButton from './FDButton';
+import FDIcon from './FDIcon';
 import { iconStyle } from '../utils/common';
 
 class MenuContents extends Component {
@@ -32,7 +32,7 @@ class MenuContents extends Component {
         key={`${data.name}_${i}`}
         onPress={() => this.onPress(data.name)} 
         >
-        <Icon name={data.icon} {...iconStyle.style4} />
+        <FDIcon name={data.icon} {...iconStyle.style4} />
         <Text style={styles.itemsLabel}>{data.label}</Text>
       </TouchableOpacity>
     );
@@ -46,14 +46,14 @@ class MenuContents extends Component {
           <TouchableOpacity            
             onPress={() => this.props.closeDrawer()} 
             >
-            <Icon name='ios-close-outline'  {...iconStyle.style4}  />
+            <FDIcon name='ios-close-outline'  {...iconStyle.style4}  />
           </TouchableOpacity>
          </View>
          <View style={{ alignItems: 'center', justifyContent: 'center'}}>
           <TouchableOpacity            
             onPress={() => this.props.closeDrawer()} 
             >
-            <Icon name='ios-settings-outline'  {...iconStyle.style4} />
+            <FDIcon name='ios-settings-outline'  {...iconStyle.style4} />
           </TouchableOpacity>
          </View>
         </View>           

@@ -60,12 +60,12 @@ class SideMenu extends Component {
     return true;
   }
   openDrawer() {
-    this.drawer.open();
     if(this.props.addBackButtonListener) this.props.addBackButtonListener(this.handleBackButton);
+    this.drawer.open();
   }
   closeDrawer() {
-    this.drawer.close();
     if(this.context.removeBackButtonListener) this.context.removeBackButtonListener(this.handleBackButton);
+    this.drawer.close();
   }
 
 

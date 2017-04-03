@@ -10,6 +10,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ReactNative.Shared", "..\no
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChakraBridge", "..\node_modules\react-native-windows\ReactWindows\ChakraBridge\ChakraBridge.vcxproj", "{4B72C796-16D5-4E3A-81C0-3E36F531E578}"
 EndProject
+Project("{4C981BB4-A3F5-3CE3-DF86-430A5D667B2C}") = "E:\js\ReactNativeBot\node_modules\react-native-share\windows\RNShare\RNShare", "..\node_modules\react-native-share\windows\RNShare\RNShare.csproj", "{B343104D-32BC-1B62-B1A1-AF268CA7D821}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\node_modules\react-native-windows\ReactWindows\ReactNative.Shared\ReactNative.Shared.projitems*{c7673ad5-e3aa-468c-a5fd-fa38154e205c}*SharedItemsImports = 4

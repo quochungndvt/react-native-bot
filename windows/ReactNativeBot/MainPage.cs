@@ -1,5 +1,6 @@
 using ReactNative;
 using ReactNative.Modules.Core;
+using Cl.Json.RNShare;
 using ReactNative.Shell;
 using System.Collections.Generic;
 
@@ -32,6 +33,7 @@ namespace ReactNativeBot
                 return new List<IReactPackage>
                 {
                     new MainReactPackage(),
+                    new RNSharePackage(),
                 };
             }
         }

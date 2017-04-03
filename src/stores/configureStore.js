@@ -3,6 +3,9 @@ import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 import { AsyncStorage } from 'react-native';
 import { persistStore, autoRehydrate } from 'redux-persist';
+var promise = require('./promise');
+var array = require('./array');
+var analytics = require('./analytics');
 import rootReducer from '../reducers';
 import { appCallApiMiddleware } from '../middleware/appCallApi';
 //import { realtimeMessage, chatMiddleware } from '../utils/socket'
@@ -16,7 +19,8 @@ function configureStore(onComplete: ?() => void) {
   // const finalCreateStore (
   //     applyMiddleware(thunk, appCallApiMiddleware, logger)
   // )(createStore)
-  const createHFStore = applyMiddleware(thunk, appCallApiMiddleware, logger)(createStore);
+  const createHFStore = applyMiddleware(thunk, promise, array, analytics, appCallApiMiddleware, logger)(createStore);  
+
   const store = autoRehydrate()(createHFStore)(rootReducer);
 	persistStore(store, { storage: AsyncStorage }, onComplete);
   return store;

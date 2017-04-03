@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {
-  View, Image, StyleSheet, TouchableOpacity
+  View, Image, StyleSheet, TouchableOpacity, PixelRatio
 } from 'react-native'
 import { Text } from './Text';
-import Colors from './Colors';
-
-class Button extends React.Component {
+import Colors from './FDColors';
+import LinearGradient from 'react-native-linear-gradient';
+class FDButton extends React.Component {
   props: {
     type: 'primary' | 'secondary' | 'bordered';
     icon?: number;
@@ -25,16 +25,29 @@ class Button extends React.Component {
       icon = <Image source={this.props.icon} style={styles.icon} />;
     }
     let content;
-    
-    var border = this.props.type === 'bordered' && styles.border;
-    content = (
-      <View style={[styles.button, border]}>
-        {icon}
-        <Text style={[styles.caption, styles.primaryCaption]}>
-          {caption}
-        </Text>
-      </View>
-    ); 
+    if (this.props.type === 'primary') {
+      content = (
+        <LinearGradient
+          start={{x: 0.5, y: 1}} end={{x: 1, y: 1}}
+          colors={['#6A6AD5', '#6F86D9']}
+          style={[styles.button, styles.primaryButton]}>
+          {icon}
+          <Text style={[styles.caption, styles.primaryCaption]}>
+            {caption}
+          </Text>
+        </LinearGradient>
+      );
+    }else{
+      var border = this.props.type === 'bordered' && styles.border;
+      content = (
+        <View style={[styles.button, border]}>
+          {icon}
+          <Text style={[styles.caption, styles.primaryCaption]}>
+            {caption}
+          </Text>
+        </View>
+      );
+    }
     return (
       <TouchableOpacity
         accessibilityTraits="button"
@@ -52,11 +65,11 @@ const HEIGHT = 50;
 var styles = StyleSheet.create({
   container: {
     height: HEIGHT,
-    borderRadius: HEIGHT / 2,
+    //borderRadius: HEIGHT / 2,
     //borderWidth: 1 / PixelRatio.get(),
   },
   button: {
-    //flex: 1,
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -86,4 +99,4 @@ var styles = StyleSheet.create({
   }
 });
 
-export default Button;
+export default FDButton;

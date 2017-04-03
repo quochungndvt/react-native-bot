@@ -34,10 +34,16 @@
     icon: 'ios-map-outline',
     label: 'FlexBox',
     name: 'flexbox'
-  },{
+  },
+  {
     icon: 'ios-cube-outline',
     label: 'Cube',
     name: 'cube'
+  },
+  {
+    icon: 'ios-map-outline',
+    label: 'Map',
+    name: 'map'
   },
 ];
 

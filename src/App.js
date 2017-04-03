@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { StyleSheet, StatusBar, View, AppState } from 'react-native';
 import { connect } from 'react-redux';
 import Navigator from './Navigator';
+import PushNotificationsController from './PushNotificationsController';
 //import CodePush from "react-native-code-push";
 
 class HFApp extends Component {
@@ -30,6 +31,7 @@ class HFApp extends Component {
           barStyle="default"
         />
         <Navigator {...this.props} />
+        <PushNotificationsController />
       </View>
     );
   }
@@ -42,7 +44,7 @@ let styles = StyleSheet.create({
 
 function select(store) {
   return {
-    isLoggedIn: store.account.isLogin,
+    isLoggedIn: store.isLogin,
   };
 }
 const mapStateToProps = state => ({
