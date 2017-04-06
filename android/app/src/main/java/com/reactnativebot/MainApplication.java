@@ -4,6 +4,7 @@ import android.app.Application;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
+import com.evollu.react.fcm.FIRMessagingPackage;
 import cl.json.RNSharePackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
@@ -38,17 +39,18 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-          new RNSharePackage(),
-          new MapsPackage(),
-          new ReactNativePushNotificationPackage(),
-          new CodePush(BuildConfig.CODEPUSH_KEY, MainApplication.this, BuildConfig.DEBUG), // Add/change this line.
-          new VectorIconsPackage(),
-          new LinearGradientPackage(),
-          new FBSDKPackage(mCallbackManager)
+              new FIRMessagingPackage(),
+              new RNSharePackage(),
+              new MapsPackage(),
+              new ReactNativePushNotificationPackage(),
+              new CodePush(BuildConfig.CODEPUSH_KEY, MainApplication.this, BuildConfig.DEBUG), // Add/change this line.
+              new VectorIconsPackage(),
+              new LinearGradientPackage(),
+              new FBSDKPackage(mCallbackManager)
       );
     }
   };
-
+  
   @Override
   public ReactNativeHost getReactNativeHost() {
     return mReactNativeHost;

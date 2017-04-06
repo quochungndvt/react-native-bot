@@ -228,7 +228,7 @@ var FDNavigator = React.createClass({
             }*/}
             return Navigator.SceneConfigs.FloatFromRight;
           }}
-          initialRoute={{ name: 'map' }}
+          initialRoute={{ name: 'homepage' }}
           />
         </SideMenu>
     );
