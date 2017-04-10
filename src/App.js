@@ -52,12 +52,12 @@ class HFApp extends Component {
           backgroundColor="rgba(0, 0, 0, 0.5)"
           barStyle="default"
         />
-        {/*<Navigator {...this.props} />*/}
-        {/*<PushNotificationsController />*/}
+        <Navigator {...this.props} />
+        <PushNotificationsController />
         <PushController
           onChangeToken={this.onChangeToken}
         />
-        <Text style={styles.welcome}>
+        {/*<Text style={styles.welcome}>
           Welcome to Simple Fcm Client!
         </Text>
 
@@ -75,17 +75,17 @@ class HFApp extends Component {
 
         <TouchableOpacity onPress={() => firebaseClient.sendNotificationWithData(this.state.token)} style={styles.button}>
           <Text style={styles.buttonText}>Send Notification With Data</Text>
-        </TouchableOpacity>
+        </TouchableOpacity>*/}
       </View>
     );
   }
 }
-let styles2 = StyleSheet.create({
+let styles = StyleSheet.create({
   container: {
     flex: 1,
   },
 });
-const styles = StyleSheet.create({
+const styles2 = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
