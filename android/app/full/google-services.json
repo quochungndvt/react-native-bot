@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "8120118596",
+    "firebase_url": "https://reminder-location-1a112.firebaseio.com",
+    "project_id": "reminder-location-1a112",
+    "storage_bucket": "reminder-location-1a112.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8120118596:android:548e9d0cd545dc41",
+        "android_client_info": {
+          "package_name": "com.reactnativebot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "8120118596-vdrqt9r5al0fo7jaakpsgquh8j381iht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpHy-j4HqEXlyY3alIZs7GfkfmivK-tqQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
